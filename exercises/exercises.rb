@@ -83,17 +83,9 @@ p contacts
 # bonus
 contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
             ["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
-
 contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 fields = [:email, :address, :phone]
 contacts.each_with_index do |(_, hash), i|
   fields.each_with_index {|field, j| hash[field] = contact_data[i][j]}
 end
-
-#names = contacts.keys
-# contact_data.each_with_index do |data, i|
-#   fields.each_with_index do |field, j|
-#     contacts[names[i]][field] = data[j]
-#   end
-# end
   p contacts
