@@ -72,12 +72,11 @@ a = ['white snow', 'winter wonderland', 'melting ice',
  # "These hashes are the same!"
 
  # 16.
- contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
+contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
 contacts = {"Joe Smith" => {}}
-[:email, :address, :phone].each_with_index do |el, i|
-  p contacts
-  p el
-  contacts["Joe Smith"][el] = contact_data[i]
+fields = [:email, :address, :phone]
+contacts.each do |_, hash|
+  fields.each_with_index {|field, i| hash[field] = contact_data[i]}
 end
 p contacts
 
@@ -87,10 +86,14 @@ contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
 
 contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 fields = [:email, :address, :phone]
-names = contacts.keys
-contact_data.each_with_index do |data, i|
-  fields.each_with_index do |field, j|
-    contacts[names[i]][field] = data[j]
-  end
+contacts.each_with_index do |(_, hash), i|
+  fields.each_with_index {|field, j| hash[field] = contact_data[i][j]}
 end
+
+#names = contacts.keys
+# contact_data.each_with_index do |data, i|
+#   fields.each_with_index do |field, j|
+#     contacts[names[i]][field] = data[j]
+#   end
+# end
   p contacts
