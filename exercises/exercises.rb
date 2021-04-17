@@ -67,3 +67,30 @@ a = ['white snow', 'winter wonderland', 'melting ice',
   'slippery sidewalk', 'salted roads', 'white trees']
 
  p a.map {|s| s.split}.flatten
+
+ # 15.
+ # "These hashes are the same!"
+
+ # 16.
+ contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
+contacts = {"Joe Smith" => {}}
+[:email, :address, :phone].each_with_index do |el, i|
+  p contacts
+  p el
+  contacts["Joe Smith"][el] = contact_data[i]
+end
+p contacts
+
+# bonus
+contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
+            ["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
+
+contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
+fields = [:email, :address, :phone]
+names = contacts.keys
+contact_data.each_with_index do |data, i|
+  fields.each_with_index do |field, j|
+    contacts[names[i]][field] = data[j]
+  end
+end
+  p contacts
