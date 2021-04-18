@@ -88,4 +88,4 @@ fields = [:email, :address, :phone]
 contacts.each_with_index do |(_, hash), i|
   fields.each_with_index {|field, j| hash[field] = contact_data[i][j]}
 end
-  p contacts
+p contacts
