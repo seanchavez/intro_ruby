@@ -59,10 +59,14 @@ until count > 10
   count += 1
 end
 
-# print until
-numbers = [7, 9, 13, 25, 18]
-count = 0
-until count == numbers.length
-  puts numbers[count]
-  count += 1
+# that's odd
+for i in 1..100
+  puts i if i.odd?
+end
+
+# greet your friends
+friends = ["Sarah", "John", "Hannah", "Dave"]
+
+for friend in friends
+  puts "Hello, #{friend}!"
 end
