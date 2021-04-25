@@ -23,3 +23,14 @@ p doubled_numbers
 numbers = [5, 9, 21, 26, 39]
 divisible_by_three = numbers.select {|num| num % 3 == 0}
 p divisible_by_three
+
+['Dave', 7, 'Miranda', 3, 'Jason', 11]
+[['Dave', 7], ['Miranda', 3], ['Jason', 11]]
+
+favorites = [['Dave', 7], ['Miranda', 3], ['Jason', 11]]
+p favorites.flatten
+
+array1 = [1, 5, 9]
+array2 = [1, 9, 5]
+puts array1 == array2
+puts array2.object_id
