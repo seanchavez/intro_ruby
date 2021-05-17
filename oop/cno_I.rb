@@ -1,4 +1,8 @@
 class MyCar
+  def self.gas_mileage(miles, gallons)
+    "#{miles / gallons} MPG"
+  end
+
   attr_accessor :color
   attr_reader :year
 
