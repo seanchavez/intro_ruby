@@ -13,6 +13,10 @@ class MyCar
     @speed = 0
   end
 
+  def to_s
+    "This car is a #{color} #{year} #{@model}"
+  end
+
   def speed_up(n)
     @speed += n
   end
@@ -37,3 +41,4 @@ turd = MyCar.new(2016, 'blue', 'corolla')
 puts turd.color
 turd.spray_paint('grey')
 puts turd.color
+puts turd
