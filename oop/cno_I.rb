@@ -1,14 +1,23 @@
 class Vehicle
+  @@vehicle_count = 0
+
+  def self.print_vehicle_count
+   "#{@@vehicle_count} vehicles have been instantiated."
+  end
+
   def self.gas_mileage(miles, gallons)
     "#{miles / gallons} MPG"
   end
 
+  def initialize
+    @@vehicle_count += 1
+  end
 end
-
 
 class MyCar < Vehicle
   CYLINDERS = 4
   attr_reader :year
+  attr_accessor :color
 
   def initialize(y, m, c)
     @year = y
