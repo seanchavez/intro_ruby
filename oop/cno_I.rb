@@ -1,15 +1,19 @@
-class MyCar
+class Vehicle
   def self.gas_mileage(miles, gallons)
     "#{miles / gallons} MPG"
   end
 
-  attr_accessor :color
+end
+
+
+class MyCar < Vehicle
+  CYLINDERS = 4
   attr_reader :year
 
-  def initialize(y, c, m)
+  def initialize(y, m, c)
     @year = y
-    @color = c 
     @model = m 
+    @color = color
     @speed = 0
   end
 
@@ -35,10 +39,23 @@ class MyCar
   end
 end
 
-
+class Truck
+  CYLINDERS = 8
+end
 
 turd = MyCar.new(2016, 'blue', 'corolla')
 puts turd.color
 turd.spray_paint('grey')
 puts turd.color
 puts turd
+
+class Person
+  attr_accessor :name
+  def initialize(name)
+    @name = name
+  end
+end
+
+bob = Person.new("Steve")
+bob.name = "Bob"
+puts bob.name
