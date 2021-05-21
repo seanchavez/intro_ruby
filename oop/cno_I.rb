@@ -36,6 +36,15 @@ class Vehicle
     self.color = color
     puts "The #{self.class} is now painted #{color}"
   end
+
+  def age
+    p "This vehicle is #{calc_age} years old."
+  end
+
+  private
+  def calc_age
+    Time.now.year - @year
+  end
 end
 
 class Car < Vehicle
@@ -82,5 +91,7 @@ wurd.brake(10)
 puts wurd.speed
 wurd.off
 puts wurd.speed
+wurd.age
+turd.age
 
 
