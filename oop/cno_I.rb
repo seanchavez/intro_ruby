@@ -1,33 +1,23 @@
 class Vehicle
   @@vehicle_count = 0
+  attr_reader :year, :model, :speed 
+  attr_accessor :color
 
+  
   def self.print_vehicle_count
-   "#{@@vehicle_count} vehicles have been instantiated."
+   puts "#{@@vehicle_count} vehicles have been instantiated."
   end
 
   def self.gas_mileage(miles, gallons)
     "#{miles / gallons} MPG"
   end
 
-  def initialize
+  def initialize(y, c, m)
     @@vehicle_count += 1
-  end
-end
-
-class MyCar < Vehicle
-  CYLINDERS = 4
-  attr_reader :year
-  attr_accessor :color
-
-  def initialize(y, m, c)
     @year = y
     @model = m 
-    @color = color
+    @color = c
     @speed = 0
-  end
-
-  def to_s
-    "This car is a #{color} #{year} #{@model}"
   end
 
   def speed_up(n)
@@ -44,7 +34,15 @@ class MyCar < Vehicle
 
   def spray_paint(color)
     self.color = color
-    puts "#{self} is now painted #{color}"
+    puts "The #{self.class} is now painted #{color}"
+  end
+end
+
+class Car < Vehicle
+  CYLINDERS = 4
+
+  def to_s
+    "This car is a #{color} #{year} #{model}"
   end
 end
 
@@ -57,27 +55,32 @@ end
 class Truck < Vehicle
   CYLINDERS = 8
   include Haulable
-end
 
-
-
-turd = MyCar.new(2016, 'blue', 'corolla')
-puts turd.color
-turd.spray_paint('grey')
-puts turd.color
-puts turd
-
-class Person
-  attr_accessor :name
-  def initialize(name)
-    @name = name
+  def to_s
+    "This truck is a #{color} #{year} #{model}"
   end
 end
 
-bob = Person.new("Steve")
-bob.name = "Bob"
-puts bob.name
+Vehicle.print_vehicle_count
+turd = Car.new(2016, 'grey', 'corolla')
+puts turd
+puts turd.color
+turd.spray_paint('black')
+puts turd.color
+puts turd
+Vehicle.print_vehicle_count
+wurd = Truck.new(2005, 'white', 'tundra')
+Vehicle.print_vehicle_count
+puts wurd.color
+wurd.spray_paint('blue')
+puts wurd.color
+puts wurd
+wurd.speed_up(20)
+puts wurd.speed
+puts wurd.cargo
+wurd.brake(10)
+puts wurd.speed
+wurd.off
+puts wurd.speed
 
-puts MyCar.ancestors
-puts Truck.ancestors
-puts Person.ancestors
+
