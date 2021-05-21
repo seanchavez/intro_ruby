@@ -48,9 +48,18 @@ class MyCar < Vehicle
   end
 end
 
-class Truck
-  CYLINDERS = 8
+module Haulable
+  def cargo
+    "I'm hauling weight."
+  end
 end
+
+class Truck < Vehicle
+  CYLINDERS = 8
+  include Haulable
+end
+
+
 
 turd = MyCar.new(2016, 'blue', 'corolla')
 puts turd.color
@@ -68,3 +77,7 @@ end
 bob = Person.new("Steve")
 bob.name = "Bob"
 puts bob.name
+
+puts MyCar.ancestors
+puts Truck.ancestors
+puts Person.ancestors
