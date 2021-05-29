@@ -25,3 +25,21 @@ puts is_valid_email("jdoe@g@mail.com")  # => false
 puts is_valid_email("jdoe42@gmail.com") # => false
 puts is_valid_email("jdoegmail.com")    # => false
 puts is_valid_email("az@email")         # => false
+
+def reverse_words(sent)
+  sent.split.map {|word| word.reverse}.join(" ")
+end
+
+puts reverse_words('keep coding') # => 'peek gnidoc'
+puts reverse_words('simplicity is prerequisite for reliability') # => 'yticilpmis si etisiuqererp rof ytilibailer'
+
+def rotate_array(arr, num)
+  num.times {arr.unshift(arr.pop)}
+  arr
+end
+
+print rotate_array([ "Matt", "Danny", "Mashu", "Matthias" ], 1) # => [ "Matthias", "Matt", "Danny", "Mashu" ]
+puts
+
+print rotate_array([ "a", "b", "c", "d" ], 2) # => [ "c", "d", "a", "b" ]
+puts
