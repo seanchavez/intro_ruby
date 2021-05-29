@@ -105,7 +105,7 @@ class Student
     @grade > student.grade
   end
 
-  protected
+  protected 
   attr_reader :grade
 end
 
