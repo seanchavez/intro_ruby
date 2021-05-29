@@ -43,3 +43,26 @@ puts
 
 print rotate_array([ "a", "b", "c", "d" ], 2) # => [ "c", "d", "a", "b" ]
 puts
+
+def combinations(arr)
+  pairs = []
+  arr.each_with_index do |a, i|
+    arr.each_with_index do |b, j|
+      if j > i
+        pairs << [a, b]
+      end
+    end
+  end
+  pairs
+end
+
+print combinations(["a", "b", "c"]); # => [ [ "a", "b" ], [ "a", "c" ], [ "b", "c" ] ]
+puts
+
+print combinations([0, 1, 2, 3]); # => [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]
+puts
+print combinations(["a", "b", "c"]); # => [ [ "a", "b" ], [ "a", "c" ], [ "b", "c" ] ]
+puts
+
+print combinations([0, 1, 2, 3]); # => [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]
+puts
