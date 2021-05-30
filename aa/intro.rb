@@ -125,3 +125,18 @@ puts
 
 print array_translate(["red", 3, "blue", 1]); # => "redredredblue"
 puts
+
+def pig_latin_word(word)
+  vowel_s = "aeiou"
+  if vowel_s.include?(word[0])
+    return word + "yay"
+  end
+  word.each_char do |c| 
+    return word[word.index(c)..-1] + word[0...word.index(c)] + "ay" if       vowel_s.include?(c)
+    end
+end
+
+puts pig_latin_word("apple")   # => "appleyay"
+puts pig_latin_word("eat")     # => "eatyay"
+puts pig_latin_word("banana")  # => "ananabay"
+puts pig_latin_word("trash")   # => "ashtray"
