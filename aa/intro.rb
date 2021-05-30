@@ -58,11 +58,35 @@ end
 
 print combinations(["a", "b", "c"]); # => [ [ "a", "b" ], [ "a", "c" ], [ "b", "c" ] ]
 puts
-
 print combinations([0, 1, 2, 3]); # => [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]
 puts
 print combinations(["a", "b", "c"]); # => [ [ "a", "b" ], [ "a", "c" ], [ "b", "c" ] ]
 puts
-
 print combinations([0, 1, 2, 3]); # => [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ], [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]
 puts
+
+def opposite_count(nums)
+  count = 0
+  nums.each {|n| nums.each {|m| count += 1 if n + m == 0}}
+  count / 2
+end
+
+puts opposite_count([ 2, 5, 11, -5, -2, 7 ]) # => 2
+puts opposite_count([ 21, -23, 24 -12, 23 ]) # => 1
+
+def two_d_sum(arr)
+  arr.flatten.reduce(:+)
+end
+
+array_1 = [
+  [4, 5],
+  [1, 3, 7, 1]
+]
+puts two_d_sum(array_1)    # => 21
+
+array_2 = [
+  [3, 3],
+  [2],
+  [2, 5]
+]
+puts two_d_sum(array_2)    # => 15
