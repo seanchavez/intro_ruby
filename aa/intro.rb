@@ -90,3 +90,38 @@ array_2 = [
   [2, 5]
 ]
 puts two_d_sum(array_2)    # => 15
+
+def two_d_translate(arr)
+  trans_arr = []
+  arr.each {|a| a.last.times {trans_arr << a.first}}
+  trans_arr
+end
+
+arr_1 = [
+  ['boot', 3],
+  ['camp', 2],
+  ['program', 0]
+]
+
+print two_d_translate(arr_1) # => [ 'boot', 'boot', 'boot', 'camp', 'camp' ]
+puts
+
+arr_2 = [
+  ['red', 1],
+  ['blue', 4]
+]
+
+print two_d_translate(arr_2) # => [ 'red', 'blue', 'blue', 'blue', 'blue' ]
+puts
+
+def array_translate(array)
+  translation = ""
+  array.each_index {|i| array[i].times {translation << array[i - 1]} if i.odd?}
+  translation
+end
+
+print array_translate(["Cat", 2, "Dog", 3, "Mouse", 1]); # => "CatCatDogDogDogMouse"
+puts
+
+print array_translate(["red", 3, "blue", 1]); # => "redredredblue"
+puts
