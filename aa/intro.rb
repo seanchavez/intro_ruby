@@ -184,3 +184,17 @@ def most_vowels(sentence)
 end
 
 p most_vowels("what a wonderful life") #=> "wonderful"
+
+def prime?(num)
+  return false if num < 2
+  (2..num / 2).each {|n| return false if num % n == 0}
+  true
+end
+
+puts prime?(2)  #=> true
+puts prime?(5)  #=> true
+puts prime?(11) #=> true
+puts prime?(4)  #=> false
+puts prime?(9)  #=> false
+puts prime?(-5) #=> false
+puts prime?(1)  #=> false
