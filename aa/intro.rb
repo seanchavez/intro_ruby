@@ -198,3 +198,12 @@ puts prime?(4)  #=> false
 puts prime?(9)  #=> false
 puts prime?(-5) #=> false
 puts prime?(1)  #=> false
+
+def greatest_factor_array(arr)
+  arr.map {|num| num % 2 == 0 ? num / 2 : num}
+end
+
+print greatest_factor_array([16, 7, 9, 14]) # => [8, 7, 9, 7]
+puts
+print greatest_factor_array([30, 3, 24, 21, 10]) # => [15, 3, 12, 21, 5]
+puts
