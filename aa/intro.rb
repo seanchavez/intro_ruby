@@ -140,3 +140,14 @@ puts pig_latin_word("apple")   # => "appleyay"
 puts pig_latin_word("eat")     # => "eatyay"
 puts pig_latin_word("banana")  # => "ananabay"
 puts pig_latin_word("trash")   # => "ashtray"
+
+def frequent_letters(string)
+  frequency = Hash.new(0)
+  string.each_char {|char| frequency[char] += 1}
+  frequency.select {|_, v| v > 2}.keys
+end
+
+print frequent_letters('mississippi') #=> ["i", "s"]
+puts
+print frequent_letters('bootcamp') #=> []
+puts
