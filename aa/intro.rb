@@ -151,3 +151,12 @@ print frequent_letters('mississippi') #=> ["i", "s"]
 puts
 print frequent_letters('bootcamp') #=> []
 puts
+
+def unique_elements(arr)
+  elements_seen = {}
+  arr.each {|el| elements_seen[el] = true}
+  elements_seen.keys
+end
+
+print unique_elements(['a', 'b', 'a', 'a', 'b', 'c']) #=> ["a", "b", "c"]
+puts
