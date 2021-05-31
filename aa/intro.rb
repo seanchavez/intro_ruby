@@ -174,3 +174,13 @@ arr2 = ["dog", "cat", "mouse"]
 hash2 = {"dog"=>"bork", "cat"=>"meow", "duck"=>"quack"}
 print element_replace(arr2, hash2) # => ["bork", "meow", "mouse"]
 puts
+
+def most_vowels(sentence)
+  word_to_vowel_count = {}
+  sentence.split.each {|word| word_to_vowel_count[word] = word.count("aeiou")}
+  word_to_vowel_count.reduce do |high_pair, pair| 
+    pair.last > high_pair.last ? pair : high_pair
+  end.first
+end
+
+p most_vowels("what a wonderful life") #=> "wonderful"
