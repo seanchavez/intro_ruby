@@ -245,3 +245,18 @@ end
 
 puts double_letter_count("the jeep rolled down the hill") #=> 3
 puts double_letter_count("bootcamp") #=> 1
+
+def pyramid_sum(base)
+  pyramid = [base]
+  (base.length - 1).times {pyramid << adjacent_sum(pyramid[-1])}
+  pyramid.reverse
+end
+
+def adjacent_sum(arr)
+  sums = []
+  (1...arr.length).each {|i| sums << arr[i] + arr[i - 1]}
+  sums
+end
+
+p pyramid_sum([1, 4, 6]) #=> [[15], [5, 10], [1, 4, 6]]
+p pyramid_sum([3, 7, 2, 11]) #=> [[41], [19, 22], [10, 9, 13], [3, 7, 2, 11]]
