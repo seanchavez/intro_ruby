@@ -219,3 +219,13 @@ end
 
 p summation_sequence(3, 4) # => [3, 6, 21, 231]
 p summation_sequence(5, 3) # => [5, 15]
+
+def caesar_cipher(str, num)
+  encrypted = ""
+  str.each_codepoint {|cp| (cp += num) > 'z'.ord ? encrypted << (cp - 26).chr : encrypted << cp.chr}
+  encrypted
+end
+
+puts caesar_cipher("apple", 1)    #=> "bqqmf"
+puts caesar_cipher("bootcamp", 2) #=> "dqqvecor"
+puts caesar_cipher("zebra", 4)    #=> "difve"
