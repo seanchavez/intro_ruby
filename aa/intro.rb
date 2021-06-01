@@ -229,3 +229,10 @@ end
 puts caesar_cipher("apple", 1)    #=> "bqqmf"
 puts caesar_cipher("bootcamp", 2) #=> "dqqvecor"
 puts caesar_cipher("zebra", 4)    #=> "difve"
+
+def vowel_cipher(string)
+  string.tr("aeiou", "eioua")
+end
+
+puts vowel_cipher("bootcamp") #=> buutcemp
+puts vowel_cipher("paper cup") #=> pepir cap
