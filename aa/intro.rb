@@ -207,3 +207,15 @@ print greatest_factor_array([16, 7, 9, 14]) # => [8, 7, 9, 7]
 puts
 print greatest_factor_array([30, 3, 24, 21, 10]) # => [15, 3, 12, 21, 5]
 puts
+
+def summation_sequence(start, length)
+  seq = [start]
+  while seq.size < length
+    seq << seq[-1] * (seq[-1] + 1) / 2
+  end
+  seq
+end
+
+
+p summation_sequence(3, 4) # => [3, 6, 21, 231]
+p summation_sequence(5, 3) # => [5, 15]
