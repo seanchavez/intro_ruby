@@ -236,3 +236,12 @@ end
 
 puts vowel_cipher("bootcamp") #=> buutcemp
 puts vowel_cipher("paper cup") #=> pepir cap
+
+def double_letter_count(string)
+  count = 0
+  string.each_char.with_index {|c, i| count += 1 if c == string[i + 1]}
+  count
+end
+
+puts double_letter_count("the jeep rolled down the hill") #=> 3
+puts double_letter_count("bootcamp") #=> 1
