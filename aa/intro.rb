@@ -260,3 +260,11 @@ end
 
 p pyramid_sum([1, 4, 6]) #=> [[15], [5, 10], [1, 4, 6]]
 p pyramid_sum([3, 7, 2, 11]) #=> [[41], [19, 22], [10, 9, 13], [3, 7, 2, 11]]
+
+def consonant_cancel(sentence)
+  vowel_s = "aeiou"
+  sentence.split.map.with_index {|word, i| word[word.index(/[aeiou]/i)..-1]}.join(" ")
+end
+
+puts consonant_cancel("down the rabbit hole") #=> "own e abbit ole"
+puts consonant_cancel("writing code is challenging") #=> "iting ode is allenging"
