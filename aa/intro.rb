@@ -268,3 +268,26 @@ end
 
 puts consonant_cancel("down the rabbit hole") #=> "own e abbit ole"
 puts consonant_cancel("writing code is challenging") #=> "iting ode is allenging"
+
+def same_char_collapse(str)
+  chars = str.chars
+  collapsible = true
+  while collapsible
+    collapsible = false
+    chars.each_index do |i|
+      if chars[i] == chars[i + 1]
+        chars[i] = ""
+        chars[i + 1] = ""
+        collapsible = true
+      end
+    end
+    chars = chars.join.chars if collapsible
+  end
+  chars.join
+end
+
+puts same_char_collapse("zzzxaaxy")   #=> "zy"
+# because zzzxaaxy -> zxaaxy -> zxxy -> zy
+puts same_char_collapse("uqrssrqvtt") #=> "uv"
+# because uqrssrqvtt -> uqrrqvtt -> uqqvtt -> uvtt -> uv
+puts same_char_collapse("zzzzzz") 
